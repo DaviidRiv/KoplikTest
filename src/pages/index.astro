@@ -1,11 +1,50 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BtnQuest  from '../components/BtnQuest.tsx';
 ---
-
 <Layout>
-	<Welcome />
+	<h1>Bienvenido a la  Prueba Técnica</h1>
+	<BtnQuest />
+	<footer>Realizado por Cristian David Moreno Rivera</footer>
 </Layout>
+<style>
+	/* Estilos generales para el layout */
+	body {
+	  font-family: 'Arial', sans-serif;
+	  color: #333;
+	  margin: 0;
+	  padding: 0;
+	}
+  
+	h1 {
+	  font-size: 2.5rem;
+	  font-weight: 700;
+	  color: #2b6cb0;
+	  margin-bottom: 1.5rem;
+	  text-align: center;
+	  text-transform: uppercase;
+	  letter-spacing: 2px;
+	  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	}
+  
+	footer {
+	  font-size: 1rem;
+	  font-weight: bold;
+	  color: #666;
+	  text-align: center;
+	  margin-top: 3rem;
+	  padding: 1rem;
+	  background-color: transparent;
+	  border-top: 2px solid #000000;
+	  box-shadow: 0 -2px 5px rgba(0, 0, 0, 1);
+	}
+  
+	footer a {
+	  color: #2b6cb0;
+	  text-decoration: none;
+	}
+  
+	footer a:hover {
+	  text-decoration: underline;
+	}
+  </style>

@@ -1,3 +1,9 @@
+---
+import { Provider } from '../components/ui/provider';
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
+import LayoutWrapper from './LayoutWrapper';
+
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,10 +11,14 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>KOPLIK - Prueba Técnica</title>
 	</head>
 	<body>
-		<slot />
+		<ChakraProvider value={defaultSystem} client:load>
+			<LayoutWrapper>
+				<slot />
+			</LayoutWrapper>
+		</ChakraProvider>
 	</body>
 </html>
 
