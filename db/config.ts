@@ -6,7 +6,7 @@ const Questions = defineTable({
     idQuestion: column.number({ primaryKey: true, unique: true }),
     question: column.text({unique: true}),
     createDate: column.date({ default: NOW })
-  }
+  },
 })
 
 const Answers = defineTable({
@@ -15,7 +15,7 @@ const Answers = defineTable({
     idQuestion: column.number({ references: () => Questions.columns.idQuestion }),
     answer: column.text(),
     is_correct: column.boolean({default: false}),
-  }
+  },
 })
 
 const Results = defineTable({
@@ -27,7 +27,7 @@ const Results = defineTable({
     is_correct: column.boolean(),
 
     UUIDResult: column.text(),
-  }
+  },
 })
 
 // https://astro.build/db/config
