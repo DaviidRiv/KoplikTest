@@ -6,8 +6,8 @@ import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 const BtnQuest = () => {
   return (
     <ChakraProvider value={defaultSystem}>
-      <Link href="/otra-pagina">
-        <Button>Ir a preguntas</Button>
+      <Link href="/questions">
+        <Button size="lg" colorPalette={"blue"} variant="surface">Ir a preguntas</Button>
       </Link>
     </ChakraProvider>
   );

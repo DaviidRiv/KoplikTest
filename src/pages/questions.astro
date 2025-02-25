@@ -1,0 +1,171 @@
+---
+import QuestionsForm from '../components/QuestionsForm.tsx';
+import Layout from '../layouts/Layout.astro';
+
+// Se obtienen los datos desde los endpoints internos
+const questionsResponse = await fetch('http://localhost:4321/api/questions.json');
+const answersResponse = await fetch('http://localhost:4321/api/answers.json');
+
+const questionsJson = await questionsResponse.json();
+const answersJson = await answersResponse.json();
+
+// Validamos que ambos endpoints hayan retornado éxito
+if (!questionsJson.success || !answersJson.success) {
+  throw new Error('Error al obtener las preguntas o respuestas');
+}
+
+const questions = questionsJson.data;
+const answers = answersJson.data;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cuestionario de Medicina</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: 'Poppins', sans-serif;
+        padding: 20px;
+      }
+
+      .container {
+          background-color: white;
+          border-radius: 12px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          padding: 30px;
+          max-width: 800px;
+          width: 100%;
+          margin: 20px;
+      }
+
+      h1 {
+          text-align: center;
+          color: #2c3e50;
+          margin-bottom: 25px;
+          font-size: 2em;
+      }
+
+      fieldset {
+          border: none;
+          background: #ecf0f1;
+          padding: 20px;
+          border-radius: 10px;
+      }
+
+      legend {
+          font-weight: bold;
+          font-size: 1.2em;
+          color: #34495e;
+          margin-bottom: 10px;
+      }
+
+      .radio-group {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 10px;
+      }
+
+      .radio label {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: white;
+          padding: 10px 15px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border: 2px solid transparent;
+          font-size: 1rem;
+      }
+
+      .radio input[type="radio"] {
+          display: none;
+      }
+
+      .radio .checkmark {
+          width: 16px;
+          height: 16px;
+          border: 2px solid #7f8c8d;
+          border-radius: 50%;
+          display: inline-block;
+          position: relative;
+      }
+
+      .radio input[type="radio"]:checked + .checkmark {
+          border-color: #3498db;
+          background: #3498db;
+      }
+
+      .radio input[type="radio"]:checked + .checkmark::after {
+          content: "";
+          width: 8px;
+          height: 8px;
+          background: white;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+
+      .radio label:hover {
+          background: #dfe6e9;
+      }
+
+      button[type="submit"] {
+          background: #3498db;
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          font-size: 1rem;
+          cursor: pointer;
+          border-radius: 8px;
+          transition: background 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+          background: #2980b9;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+          .container {
+              padding: 20px;
+          }
+
+          h1 {
+              font-size: 1.7em;
+          }
+
+          .radio-group {
+              flex-direction: column;
+          }
+
+          button[type="submit"] {
+              width: 100%;
+          }
+      }
+
+      @media (max-width: 480px) {
+          h1 {
+              font-size: 1.4em;
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Se inserta el componente React usando la técnica de Server Islands -->
+    <Layout>
+      <div class="container">
+        <h1>Cuestionario de Medicina</h1>
+        <QuestionsForm questions={questions} answers={answers} client:load />
+      </div>
+    </Layout>
+  </body>
+  
+</html>
