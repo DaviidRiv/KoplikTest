@@ -1,6 +1,6 @@
 // src/components/LayoutWrapper.tsx
 import React from 'react';
-import astroLogo from '../assets/astro.svg';
+import astroLogo from '../assets/KoplikLogo.png';
 import background from '../assets/background.svg';
 
 interface LayoutProps {
