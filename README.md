@@ -4,7 +4,7 @@ Una aplicación de prueba técnica construida con **Astro**, **ReactJS** y **Cha
 Este proyecto utiliza **React Hook Form** con **Zod** para la validación dinámica de formularios y se integra con **Astro DB** 
 para la gestión de datos.
 
-Explicación Detallada : 
+Explicación Detallada : https://youtu.be/ADqLmk26sMU
 
 ---
 
