@@ -82,8 +82,11 @@ const QuestionsForm: React.FC<QuestionsFormProps> = ({ questions, answers }) => 
         console.log("Respuesta del servidor:", responseData);
     
         if (response.ok) {
-          // Redirecciona al index
-          window.location.href = "/";
+          // Extrae el UUID que retorna la API
+          const { UUIDResult } = responseData;
+
+          // Redirecciona al index pasando el UUID
+          window.location.href = `/?success=true&uuid=${UUIDResult}`;
         }
       } catch (error) {
         console.error("Error al enviar los datos:", error);

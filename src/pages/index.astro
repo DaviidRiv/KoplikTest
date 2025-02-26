@@ -3,15 +3,20 @@ import Layout from '../layouts/Layout.astro';
 import BtnQuest  from '../components/BtnQuest.tsx';
 import  Demo  from '../components/Demo.tsx';
 import  DemoRadio  from '../components/ui/radio/DemoRadio.tsx';
+import AlertSuccess from '../components/AlertSuccess.tsx';
+import BtnResults from '../components/BtnResults.tsx';
 ---
 <Layout>
+	<AlertSuccess client:load />
 	<h1>Bienvenido a la  Prueba Técnica</h1>
 	<BtnQuest />
-	<!-- Demos de componentes para RadioButton-->
-	<!--
-	<Demo /> ChakraUI
+	
+	<!-- Demos de componentes para RadioButton
+	
+	<Demo client:load /> ChakraUI
 	<DemoRadio /> Propio
 	-->
+	<BtnResults client:load />
 	<footer>Realizado por Cristian David Moreno Rivera</footer>
 </Layout>
 <style>
