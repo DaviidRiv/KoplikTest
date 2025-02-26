@@ -132,7 +132,7 @@ const QuestionsForm: React.FC<QuestionsFormProps> = ({ questions, answers }) => 
       })}
       <Button type="submit" mt="6" colorPalette="green" variant="surface">
           Enviar respuestas
-        </Button>
+      </Button>
     </form>
     </ChakraProvider>
   );
