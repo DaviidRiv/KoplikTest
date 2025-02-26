@@ -6,6 +6,8 @@ para la gestión de datos.
 
 Explicación Detallada : 
 
+---
+
 ## 📂 Estructura del Proyecto
 
 La estructura principal del proyecto es la siguiente:
@@ -50,8 +52,8 @@ La estructura principal del proyecto es la siguiente:
 └── package.json
 └── astro.config.mjs //integrar react y db al proyecto
 └── ... (otros archivos y componentes de configuracion)
-
-
+```
+---
 
 ## 🧞 Commands
 
@@ -69,13 +71,20 @@ Debes abrir la terminal en la raiz del proyecto para ejecutar los siguientes com
 ### 🔧 Configuración y Ejecución
 
 Clona el repositorio:
+```sh
 git clone <URL-del-repositorio>
+```
 
 Instala las dependencias:
+```sh
 npm install
+```
+
 
 Inicia el servidor de desarrollo:
+```sh
 npm run dev
+```
 
 Abre el navegador en:
 http://localhost:4321
@@ -87,16 +96,16 @@ El proyecto "PruebaTecnica" cuenta con las siguientes funcionalidades:
 Contiene dos botones principales:
 
 **Responder Cuestionario:**
-Navega a questions.astro, que renderiza el componente QuestionsForm. En este formulario se muestran preguntas obtenidas desde una API, se permite al usuario seleccionar respuestas (utilizando componentes de ChakraUI), y se envían los datos a través de un POST a otra API. La respuesta de esta API retorna un UUID único, el cual se muestra mediante un alert en la página principal.
+Navega a questions.astro, que renderiza el componente QuestionsForm. En este formulario se muestran preguntas obtenidas desde una API, <br> se permite al usuario seleccionar respuestas (utilizando componentes de ChakraUI), y se envían los datos a través de un POST a otra API. <br> La respuesta de esta API retorna un UUID único, el cual se muestra mediante un alert en la página principal.
 
 **Consultar Resultados:**
-Permite al usuario ingresar el UUID obtenido previamente (a través de un prompt) para consultar otra API que devuelve los resultados del cuestionario. Los resultados se muestran en un window.alert indicando si cada pregunta fue respondida correctamente o incorrectamente.
+Permite al usuario ingresar el UUID obtenido previamente (a través de un prompt) para consultar otra API que devuelve los resultados <br> del cuestionario. Los resultados se muestran en un window.alert indicando si cada pregunta fue respondida correctamente o  <br> incorrectamente.
 
 **Integración con ChakraUI:**
 Se utilizan componentes de ChakraUI para una interfaz moderna y accesible.
 
 **Validación Dinámica con React Hook Form y Zod:**
-El componente QuestionsForm construye un esquema de validación dinámico para asegurar que el usuario seleccione una respuesta para cada pregunta.
+El componente QuestionsForm construye un esquema de validación dinámico para asegurar que el usuario seleccione una respuesta <br> para cada pregunta.
 
 **Astro DB:**
 Se integra para la gestión de datos. Asegúrate de tener configurada la conexión correctamente según tus necesidades.
